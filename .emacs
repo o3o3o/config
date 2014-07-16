@@ -55,12 +55,28 @@
  ;(ibus-define-common-key ?\C-/ nil)
  ;; Change cursor color depending on IBus status
  (setq ibus-cursor-color '("red" "blue" "limegreen"))
-(global-set-key (kbd "s-SPC") 'ibus-toggle)
+(global-set-key (kbd "s-SPC") 'ibus-toggle);; super-space
 
 ;;
 (global-auto-revert-mode 1)
 
-;; todo settting
+;; -*- mode: elisp -*-
+
+;; Disable the splash screen (to enable it agin, replace the t with 0)
+(setq inhibit-splash-screen t)
+
+;; Enable transient mark mode
+(transient-mark-mode 1)
+
+;;;;org-mode configuration
+;; Enable org-mode
+(require 'org)
+;; Make org-mode work with files ending in .org
+ (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(global-set-key "\C-ca" 'org-agenda)
+;; The above is the default in recent emacsen
+
+
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "WATTING" "DONE")))
 (setq org-todo-keywords
@@ -70,7 +86,7 @@
            '(("TODO" . org-warning)
 	     ("IN-PROGRESS" . (:foreground "LimeGreen" :weight bold))
              ("CANCELED" . (:foreground "grey39" :weight bold))))
-(setq org-agenda-files (quote ("~/Note/work.org"
+(setq org-agenda-files (quote("~/Note/work.org"
 			 "~/Note/todo/todo.org")))
       
 (custom-set-variables
@@ -85,3 +101,11 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+;; org2blog
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/wordpress-mode/wordpress-mode.el"))
+(require 'wordpress-mode) 
+
+(add-hook 'php-mode-hook '(lambda ()
+                            (if (wp/exists)
+                              (wordpress-mode))))
