@@ -1,4 +1,4 @@
-#describe
+#description
 my dot file
 
 #needs
