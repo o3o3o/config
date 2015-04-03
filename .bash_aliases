@@ -7,8 +7,7 @@ alias booklist='~/.bashOoO/booklist.sh'
 alias Rdesktop='~/.bashOoO/Rdesktop.sh'
 alias MySql='~/.bashOoO/MySql.sh'
 alias backup2183='~/.bashOoO/backup2183.sh'
-#you hamachi id
-OoO_IP=$(hamachi list|grep 'you_hamachi_id'|awk '{ print $4 }'|uniq)
+#OoO_IP=$(hamachi list|grep michael_OoO|awk '{ print $4 }'|uniq)
 alias bk2OoO='~/.bashOoO/backup2OoO.sh -h ${OoO_IP}'
 
 alias t='todo'
@@ -18,9 +17,7 @@ alias W='~/.bashOoO/weather.sh'
 alias dict='~/.bashOoO/dict.sh'
 alias say='~/.bashOoO/say.sh'
 alias dropboxd='~/.dropbox-dist/dropboxd'
-#alias fgw='/opt/longene/qq2012/wine/bin/wine ~/.bashOoO/fg739p.exe'
 alias fgw='/opt/longene/qq2012/wine/bin/wine ~/.bashOoO/fg742p.exe'
-#alias fgw='/opt/longene/qq2012/wine/bin/wine ~/.bashOoO/DynaPass32.exe'
 
 alias baidu='~/.bashOoO/back2yun/backup2yun.php'
 alias byun='python ~/.bypy/bypy.py'
@@ -47,9 +44,7 @@ alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nb
 #-l90:  line length 90 columns
 
 
-# change GateWay quickly for speedding up
-alias cgdown='sudo sed -i 's/139.190/139.254/' /etc/NetworkManager/system-connections/Sict && sudo service network-manager restart'
-
-alias cgup='sudo sed -i 's/139.254/139.190/' /etc/NetworkManager/system-connections/Sict && sudo service network-manager restart'
 
 alias wikisole='~/.bashOoO/wikisole.sh'
+alias xmod='xmodmap ~/.xmodmaprc'
+alias psg='ps aux|grep'

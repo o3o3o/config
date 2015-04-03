@@ -70,7 +70,7 @@ set wrap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set termencoding=utf-8
-set mouse=a
+"set mouse=a
 "Some nice mapping to switch syntax (useful if one mixes different languages in one file)
 "autocmd BufEnter * :syntax sync fromstart
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -179,6 +179,7 @@ au BufRead,BufNewFile readme set syntax=plain
 au BufRead,BufNewFile README set syntax=plain
 au BufRead,BufNewFile *.srt set syntax=sts
 au BufRead,BufNewFile *.SRT set syntax=sts
+au BufRead,BufNewFile *.md set syntax=markdown
 "*******************************************
 " Part For: Key Mappings.
 "*******************************************
@@ -305,9 +306,7 @@ endfunc
 " Part Six: Frequently used Abbrevs
 "*******************************************
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iabbr wang wangyahui
-iabbr wyh wangyahui
-iabbr Wang WangYahui
+"iabbr as  full
 
 "execute pathogen#infect()
 if expand('%:t') =~? 'rfc\d\+'
@@ -357,6 +356,8 @@ Bundle 'OmniCppComplete'
 Bundle 'mediawiki'
 Bundle 'accelerated-smooth-scroll'
 "Bundle 'NERDTree'
+"instant preview markdown
+Bundle 'git@github.com:suan/vim-instant-markdown.git'
 
 
 filetype plugin indent on     " required
