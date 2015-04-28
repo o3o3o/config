@@ -23,6 +23,7 @@ alias baidu='~/.bashOoO/back2yun/backup2yun.php'
 alias byun='python ~/.bypy/bypy.py'
 
 alias ct='~/.bashOoO/changeTerminalColour.sh'
+alias cp2ftp='~/.bashOoO/cp2ftp.sh'
 
 # indent for asterisk doxgen
 alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo -saf -sai -saw -cs -l90'
