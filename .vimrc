@@ -179,7 +179,7 @@ au BufRead,BufNewFile readme set syntax=plain
 au BufRead,BufNewFile README set syntax=plain
 au BufRead,BufNewFile *.srt set syntax=sts
 au BufRead,BufNewFile *.SRT set syntax=sts
-au BufRead,BufNewFile *.md set syntax=markdown
+au BufReadPost,BufNewFile *.md set syntax=markdown
 "*******************************************
 " Part For: Key Mappings.
 "*******************************************
@@ -358,20 +358,15 @@ Bundle 'accelerated-smooth-scroll'
 "Bundle 'NERDTree'
 "instant preview markdown
 Bundle 'git@github.com:suan/vim-instant-markdown.git'
+Bundle 'drawit'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'ruby.vim'
 
 
 filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
 
 
+let g:instant_markdown_autostart = 0

@@ -45,6 +45,10 @@ alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nb
 #-l90:  line length 90 columns
 
 
+# change GateWay for speed
+alias cgdown='sudo sed -i 's/139.200/139.254/' /etc/NetworkManager/system-connections/Sict && sudo service network-manager restart'
+
+alias cgup='sudo sed -i 's/139.254/139.200/' /etc/NetworkManager/system-connections/Sict && sudo service network-manager restart'
 
 alias wikisole='~/.bashOoO/wikisole.sh'
 alias xmod='xmodmap ~/.xmodmaprc'

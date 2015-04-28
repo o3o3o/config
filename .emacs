@@ -15,13 +15,8 @@
 ;                         '(progn
 ;                            (define-key lisp-mode-map (kdb "TAB") 'lisp-indent-or-complete)))
 ;; font setting
-(add-to-list 'default-frame-alist '(font .   "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")) (set-face-attribute 'default t :font "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
-
-;; mediawiki
-(require 'mediawiki)
-(setq mediawiki-site-alist
-      (append '("wiki" "http://10.0.0.174/wiki/index.php" "wangyahui" "wangyahuiwiki" "首页")
-              mediawiki-site-alist))
+;(add-to-list 'default-frame-alist '(font .   "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")) (set-face-attribute 'default t :font "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
+(set-fontset-font "fontset-default" 'han '("Microsoft YaHei" . "unicode-bmp")
 
 ;; -*- mode: elisp -*-
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
@@ -55,7 +50,7 @@
  ;(ibus-define-common-key ?\C-/ nil)
  ;; Change cursor color depending on IBus status
  (setq ibus-cursor-color '("red" "blue" "limegreen"))
-(global-set-key (kbd "s-SPC") 'ibus-toggle);; super-space
+;(global-set-key (kbd "C-A-SPC") 'ibus-toggle);; ctrl-alt-space
 
 ;;
 (global-auto-revert-mode 1)
@@ -103,9 +98,14 @@
  )
 
 ;; org2blog
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/wordpress-mode/wordpress-mode.el"))
-(require 'wordpress-mode) 
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/wordpress-mode/wordpress-mode.el"))
+;;(require 'wordpress-mode) 
 
-(add-hook 'php-mode-hook '(lambda ()
-                            (if (wp/exists)
-                              (wordpress-mode))))
+(defun markdown-regexp-right (beg end)
+    (interactive "r")
+      (replace-regexp "-\|[^-]" "-:|\n" nil beg end)    
+        (replace-regexp "-\\+-" "-|-" nil beg end)
+)
+;;(add-hook 'php-mode-hook '(lambda ()
+;;                            (if (wp/exists)
+;;                              (wordpress-mode))))
