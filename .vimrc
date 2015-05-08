@@ -52,6 +52,7 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
+
 "set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set cinoptions=:0,g0,t0,(0
 "Restore cursor to file position in previous editing session
@@ -137,10 +138,10 @@ endfunc
 " C/C++
 autocmd FileType c,cpp map <buffer> <leader><space> :make<cr>
 autocmd FileType c,cpp setlocal cindent
-\ textwidth=82
-\ shiftwidth=8
-\ tabstop=8
-\ softtabstop=8
+"\ textwidth=82
+"\ shiftwidth=8
+"\ tabstop=8
+"\ softtabstop=8
 " Highlight space errors in C/C++ source files (Vim tip #935)
 if $VIM_HATE_SPACE_ERRORS != '0'
 let c_space_errors=1
