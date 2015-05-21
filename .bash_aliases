@@ -53,4 +53,4 @@ alias cgup='sudo sed -i 's/139.254/139.200/' /etc/NetworkManager/system-connecti
 alias wikisole='~/.bashOoO/wikisole.sh'
 alias xmod='xmodmap ~/.xmodmaprc'
 alias psg='ps aux|grep'
-alias pkillqq='pkill QQ; pkill TM; pkill wine'
+alias pkillqq='pkill QQ; pkill TM; pkill wine; pkill TXPlatform.exe'
