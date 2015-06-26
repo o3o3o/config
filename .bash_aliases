@@ -26,7 +26,8 @@ alias ct='~/.bashOoO/changeTerminalColour.sh'
 alias cp2ftp='~/.bashOoO/cp2ftp.sh'
 
 # indent for asterisk doxgen
-alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo -saf -sai -saw -cs -l90'
+#alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo -saf -sai -saw -cs -l90'
+alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo'
 # -i4:    indent level 4
 #-ts4:   tab size 4
 #-br:    braces on if line
@@ -54,3 +55,19 @@ alias wikisole='~/.bashOoO/wikisole.sh'
 alias xmod='xmodmap ~/.xmodmaprc'
 alias psg='ps aux|grep'
 alias pkillqq='pkill QQ; pkill TM; pkill wine; pkill TXPlatform.exe'
+
+#new tab with title
+function sshtitle(){
+    local ip=$1
+    local title=$2
+    xfce4-terminal --tab -T "$title" -e "ssh -p2222 -vl root $ip"
+}
+
+alias ssh2aliyun='sshtitle aliyun_ip aliyun'
+alias ssh2aws='sshtitle aws_ip aws'
+
+function 139_ssh(){
+    local port=$1
+    sshtitle 192.168.139.$port 139-$1
+}
+alias ssh2local='139_ssh'
