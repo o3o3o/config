@@ -57,17 +57,21 @@ alias psg='ps aux|grep'
 alias pkillqq='pkill QQ; pkill TM; pkill wine; pkill TXPlatform.exe'
 
 #new tab with title
+# args <IP> <TITLE>
 function sshtitle(){
     local ip=$1
     local title=$2
     xfce4-terminal --tab -T "$title" -e "ssh -p2222 -vl root $ip"
 }
 
+# aliyun_ip aws_ip in /etc/hosts
 alias ssh2aliyun='sshtitle aliyun_ip aliyun'
 alias ssh2aws='sshtitle aws_ip aws'
 
 function 139_ssh(){
     local port=$1
-    sshtitle 192.168.139.$port 139-$1
+    if [ "$port" != "" ];then 
+        sshtitle "192.168.139.$port" "local-$port"
+    fi
 }
 alias ssh2local='139_ssh'

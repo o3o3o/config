@@ -363,6 +363,7 @@ Bundle 'drawit'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'ruby.vim'
+Bundle 'git@github.com:mattn/emmet-vim'
 
 
 filetype plugin indent on     " required

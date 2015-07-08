@@ -6,7 +6,7 @@ set -o errexit
 copy2ftp(){
     if [ "$#" != "0" ];then
         #echo "sudo cp $1 $2"
-        sudo cp $@
+        sudo cp -r $@
         sudo chown -R ftp:ftp ${@: -1}
     fi
 }
