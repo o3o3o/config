@@ -268,6 +268,14 @@ nmap <silent> <leader>lv :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr>
 vmap <silent> <leader>lv :lv /<c-r>=<sid>GetVisualSelection()<cr>/ %<cr>:lw<cr>
 "map for ESC
 inoremap jj <ESC>
+
+" for js
+autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "*******************************************
 " Part Five: Functions called by obove key maps.
@@ -364,6 +372,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'ruby.vim'
 Bundle 'git@github.com:mattn/emmet-vim'
+Bundle 'git@github.com:maksimr/vim-jsbeautify'
+Bundle 'vim-ruby/vim-ruby'
 
 
 filetype plugin indent on     " required

@@ -16,7 +16,7 @@
 ;                            (define-key lisp-mode-map (kdb "TAB") 'lisp-indent-or-complete)))
 ;; font setting
 ;(add-to-list 'default-frame-alist '(font .   "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")) (set-face-attribute 'default t :font "-unknown-WenQuanYi Zen Hei Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
-(set-fontset-font "fontset-default" 'han '("Microsoft YaHei" . "unicode-bmp")
+;(set-fontset-font "fontset-default" 'han '("Microsoft YaHei" . "unicode-bmp")
 
 ;; -*- mode: elisp -*-
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
@@ -40,10 +40,10 @@
 ;;(global-set-key (kbd "\C-\\") 'ibus-"
 
 ;; ibus support
-(add-to-list 'load-path "/usr/share/emacs23/site-lisp/ibus/ibus-el")
-(require 'ibus)
-(add-hook 'after-init-hook 'ibus-mode-on)
-(setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el-agent")
+;(add-to-list 'load-path "/usr/share/emacs23/site-lisp/ibus/ibus-el")
+;(require 'ibus)
+;(add-hook 'after-init-hook 'ibus-mode-on)
+;(setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el-agent")
  ;; Use C-SPC for Set Mark command
 ; (ibus-define-common-key ?\C-\s nil)
  ;; Use C-/ for Undo command

@@ -1,7 +1,7 @@
-#description
-my dot file
+#Description
+my dots file
 
-#needs
+#dependency
 git clone git@github.com:robbyrussell/oh-my-zsh.git
 
 ##ubuntu

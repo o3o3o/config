@@ -75,3 +75,4 @@ function 139_ssh(){
     fi
 }
 alias ssh2local='139_ssh'
+alias markdown='~/.markdown/linux32/CmdMarkdown'
