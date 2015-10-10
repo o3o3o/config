@@ -374,6 +374,7 @@ Bundle 'ruby.vim'
 Bundle 'git@github.com:mattn/emmet-vim'
 Bundle 'git@github.com:maksimr/vim-jsbeautify'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'easytags'
 
 
 filetype plugin indent on     " required

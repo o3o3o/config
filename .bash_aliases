@@ -76,3 +76,16 @@ function 139_ssh(){
 }
 alias ssh2local='139_ssh'
 alias markdown='~/.markdown/linux32/CmdMarkdown'
+alias k='~/.bashOoO/key_change.sh'
+
+function tag ()
+{
+#clean older info
+    rm -rf tags
+    rm -rf cscope.files
+    rm -rf cscope.out
+# generate new info
+    find $PWD | egrep -i "\.(c|h|cpp|php)$" > cscope.files
+    ctags -R . --tag-relative=yes ./
+cscope -qRb
+}
