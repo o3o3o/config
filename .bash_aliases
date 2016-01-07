@@ -27,7 +27,9 @@ alias cp2ftp='~/.bashOoO/cp2ftp.sh'
 
 # indent for asterisk doxgen
 #alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo -saf -sai -saw -cs -l90'
-alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo'
+#alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo'
+alias indent='indent -i4 -ts4 -br -brs -cdw -lp -ce -nbfda -npcs -nprs -npsl -nbbo -nsaf -nsaw -nsai -ncs'
+
 # -i4:    indent level 4
 #-ts4:   tab size 4
 #-br:    braces on if line
@@ -53,7 +55,11 @@ alias cgup='sudo sed -i 's/139.254/139.200/' /etc/NetworkManager/system-connecti
 
 alias wikisole='~/.bashOoO/wikisole.sh'
 alias xmod='xmodmap ~/.xmodmaprc'
-alias psg='ps aux|grep'
+function _psg(){
+    ps aux|egrep "USER|$@"
+}
+alias psg='_psg'
+#alias psg='ps aux|grep'
 alias pkillqq='pkill QQ; pkill TM; pkill wine; pkill TXPlatform.exe'
 
 #new tab with title
