@@ -1,11 +1,20 @@
-#Description
-my dots file
+# Description
+my dots file:
+* vim
+* tmux
+* bash
+* zsh
+* xmodmaprc 
+* xfce-terminal color-theme
+* stardict
+/usr/share/stardict/
 
-#dependency
+# Dependency
+```
 git clone git@github.com:robbyrussell/oh-my-zsh.git
-
-##ubuntu
-sudo apt-get install stardic tmux  vim zsh git
-
-#note
-stardict dictinary --> /usr/share/stardict/
+```
+## Install on ubuntu
+```
+sudo apt-get install stardic tmux vim zsh git
+./install.sh
+```
