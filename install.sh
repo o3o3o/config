@@ -23,6 +23,10 @@ install_stardic(){
     mkdir -p $DIC_DIR
     cp -r dic/* $DIC_DIR
 }
+install_zsh(){
+    cd ~/ && git clone git@github.com:robbyrussell/oh-my-zsh.git
+}
+install_zsh
 install_dotfile
 install_stardic
 
