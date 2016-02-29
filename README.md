@@ -12,5 +12,5 @@ my dots file:
 ## Install on ubuntu
 ```
 sudo apt-get install stardic tmux vim zsh git
-git clone https://github.com/o3o3o/dots && cd dots && ./install.sh
+git clone --recurse-submodules https://github.com/o3o3o/dots && cd dots && ./install.sh
 ```
