@@ -9,12 +9,8 @@ my dots file:
 * stardict
 /usr/share/stardict/
 
-# Dependency
-```
-git clone git@github.com:robbyrussell/oh-my-zsh.git
-```
 ## Install on ubuntu
 ```
 sudo apt-get install stardic tmux vim zsh git
-./install.sh
+git clone https://github.com/o3o3o/dots && cd dots && ./install.sh
 ```
