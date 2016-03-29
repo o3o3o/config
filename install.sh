@@ -3,7 +3,7 @@ set -o nounset
 set -o errexit
 
 install_dotfile(){
-    dotfile="
+    local dotfile="
     .bash_aliases
     .bashOoO
     .emacs
@@ -14,7 +14,11 @@ install_dotfile(){
     .xmodmaprc
     .zshrc
     "
-    \cp -fr "$dotfile" ~/
+    for i in $dotfile
+    do
+        \cp -fr $i ~/
+    done
+
 }
 
 install_stardic(){
