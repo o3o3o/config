@@ -24,7 +24,7 @@ install_stardic(){
     cp -r dic/* $DIC_DIR
 }
 install_zsh(){
-    cd ~/ && git clone git@github.com:robbyrussell/oh-my-zsh.git
+    cd ~/ && git clone https://github.com/robbyrussell/oh-my-zsh.git
 }
 install_zsh
 install_dotfile
