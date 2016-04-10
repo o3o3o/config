@@ -334,13 +334,14 @@ inoremap <C-t> wangyahui, <C-R>=strftime("%F")<CR>
 "           Vundle require
 "*******************************************
 "set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "let path = '~/some/path/here'
 "call vundle#rc(path)
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
+"
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
@@ -379,10 +380,9 @@ Bundle 'DrawIt'
 "auto detect encoding
 Bundle 'fencview'
 
-
-filetype plugin indent on     " required
-" NOTE: comments after Plugin commands are not allowed.
-" Put your stuff after this line
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 
 let g:instant_markdown_autostart = 0
