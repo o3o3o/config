@@ -95,3 +95,11 @@ function tag ()
     ctags -R . --tag-relative=yes ./
 cscope -qRb
 }
+alias cherrytree='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;cherrytree'
+alias virpy='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;source ~/work/ENV/bin/activate'
+
+function tags_django()
+{
+    ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+
+}
