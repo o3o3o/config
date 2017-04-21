@@ -8,9 +8,6 @@
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-"set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "*******************************************
 " Part One: General A list of 'set' command.
@@ -47,7 +44,7 @@ set incsearch
 set hlsearch		        			"Highlight search things
 set magic           					"Set magic on
 set showmatch	        				"show matching bracets
-"Tab configuration
+"Tab configuration for python
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -82,13 +79,6 @@ set termencoding=utf-8
 " C-support: Also known as c.vim, a powerful tool to write C/C++" code.
 " NERDTree: A tool to explore local and network files and directories.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Taglist
-nmap <silent><F3>       :Tlist<CR>:wincmd j<cr>
-"imap <silent><F3>       :Tlist<CR>:wincmd j<cr>
-let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
-let Tlist_WinWidth = 27
-let Tlist_Exit_OnlyWindow = 1
 let winManagerWindowLayout = 'FileExplore|TagList'
 "let winwidth don't resize
 let Tlist_Inc_Winwidth = 0
@@ -99,13 +89,13 @@ let Tlist_Inc_Winwidth = 0
 " nmap <F6>  :TrinityToggleAll<CR> 
 "
 " " Open and close the Source Explorer separately 
- nmap <F8>  :TrinityToggleSourceExplorer<CR> 
+ "nmap <F8>  :TrinityToggleSourceExplorer<CR> 
 "
 " " Open and close the Taglist separately 
- nmap <F7> :TrinityToggleTagList<CR> 
+ "nmap <F7> :TrinityToggleTagList<CR> 
 "
 " " Open and close the NERD Tree separately 
- nmap <F9> :TrinityToggleNERDTree<CR> 
+ "nmap <F9> :TrinityToggleNERDTree<CR> 
 
 "SuperTab.vim
 let g:SuperTabDefaultCompletionType="<C-X><C-O>"
@@ -139,9 +129,6 @@ endfunc
 autocmd FileType c,cpp map <buffer> <leader><space> :make<cr>
 autocmd FileType c,cpp setlocal cindent
 "\ textwidth=82
-"\ shiftwidth=8
-"\ tabstop=8
-"\ softtabstop=8
 " Highlight space errors in C/C++ source files (Vim tip #935)
 if $VIM_HATE_SPACE_ERRORS != '0'
 let c_space_errors=1
@@ -149,8 +136,8 @@ endif
 """"""""""""""""""""""""""""""
 " HTML
 """""""""""""""""""""""""""""""
-au FileType html set ft=xml
-au FileType html set syntax=html
+"au FileType html set ft=xml
+"au FileType html set syntax=htmldjango
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 "au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -236,7 +223,7 @@ nmap <leader>dr :%sort u
 vmap <leader>dr :sort u
 " Shotkey to change tab configuration
 nmap <leader>t8 :set shiftwidth=8 softtabstop=8 tabstop=8<cr>
-nmap <leader>t4 :set shiftwidth=4 softtabstop=4 tabstop=4<cr>
+nmap <leader>t4 :set shiftwidth=4 softtabstop=4 tabstop=4 expandtab<cr>
 nmap <leader>et :set expandtab<cr>
 nmap <leader>nt :set noexpandtab<cr>
 " Keybind for Subversion.
@@ -245,7 +232,6 @@ imap <leader>ad <Esc>:! svn add %<cr>
 nmap <leader>up :! svn up<cr>
 nmap <leader>ci :! svn ci .<cr>
 nmap <leader>vd :call Base_diff()<cr>
-nmap <leader>vf :call SVN_diff()<cr>
 " Keybind for Vimdiff
 nmap <leader>dg :diffget<cr>
 nmap <leader>dp :diffput<cr>
@@ -363,15 +349,17 @@ Bundle 'git://git.wincent.com/command-t.git'
 "Bundle '/plugin'
 " ...
 Bundle 'OmniCppComplete'
-Bundle 'mediawiki'
 Bundle 'accelerated-smooth-scroll'
 "Bundle 'NERDTree'
+Bundle 'django.vim'
+Plugin 'django_templates.vim'
 "instant preview markdown
 Bundle 'git@github.com:suan/vim-instant-markdown.git'
 Bundle 'drawit'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'ruby.vim'
+" quick write html
 Bundle 'git@github.com:mattn/emmet-vim'
 Bundle 'git@github.com:maksimr/vim-jsbeautify'
 Bundle 'vim-ruby/vim-ruby'
@@ -379,10 +367,29 @@ Bundle 'easytags'
 Bundle 'DrawIt' 
 "auto detect encoding
 Bundle 'fencview'
+Bundle 'TagBar'
+" match with % between html tag 
+Bundle 'exvim/ex-matchit'
+Bundle 'git@github.com:posva/vim-vue.git'
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+Bundle 'octave'
+Bundle 'omoll/vim-node'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" TagBar
+nmap <F3> :TagbarToggle<CR>
 
-let g:instant_markdown_autostart = 0
+"
+"""Python Django
+autocmd FileType python set sw=4 et 
+autocmd FileType python set ts=4 et
+autocmd FileType python set sts=4 et
+
+""" vue
+au BufNewFile,BufRead *.vue setf vue
+au BufNewFile,BufRead *.html set syntax=htmldjango
+
+set nofoldenable
