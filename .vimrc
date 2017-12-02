@@ -50,6 +50,9 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 
+""trailing spaces language types, the default is 'python'
+let g:auto_striptab = "python,ruby,cpp"
+
 "set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set cinoptions=:0,g0,t0,(0
 "Restore cursor to file position in previous editing session
@@ -307,7 +310,7 @@ endfunc
 if expand('%:t') =~? 'rfc\d\+'
           setfiletype RFC
       endif 
-inoremap <C-t> wangyahui, <C-R>=strftime("%F")<CR>
+inoremap <C-t> michael, <C-R>=strftime("%F")<CR>
 "insert time
 
 "*******************************************
@@ -374,6 +377,7 @@ Bundle 'git@github.com:posva/vim-vue.git'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Bundle 'octave'
 Bundle 'omoll/vim-node'
+"Bundle 'vary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -393,3 +397,8 @@ au BufNewFile,BufRead *.vue setf vue
 au BufNewFile,BufRead *.html set syntax=htmldjango
 
 set nofoldenable
+
+" Fix the difficult-to-read default setting for diff text highlighting.  The
+" bang (!) is required since we are overwriting the DiffText setting. The highlighting
+" for "Todo" also looks nice (yellow) if you don't like the "MatchParen" colors.
+highlight! link DiffText MatchParen
