@@ -83,6 +83,7 @@ function 139_ssh(){
 alias ssh2local='139_ssh'
 alias markdown='~/.markdown/linux32/CmdMarkdown'
 alias k='~/.bashOoO/key_change.sh'
+alias imgcat='~/.bashOoO/imgcat'
 
 function tag ()
 {
@@ -96,10 +97,35 @@ function tag ()
 cscope -qRb
 }
 alias cherrytree='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;cherrytree'
-alias virpy='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;source ~/work/ENV/bin/activate'
 
 function tags_django()
 {
+    ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags 
+
+}
+function tags_js()
+{
+    ctags -R --fields=+l  --languages=javascript
+    #javascript-ctags
+}
+
+function tags_django_full()
+{
     ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
 
+}
+
+function pyclean()
+{
+    find . -name '*.pyc' | xargs rm
+    echo "Clean .pyc Finished"
+}
+#alias arc='export PATH="$PATH:/Users/michael/work/arcanist/bin"; arc'
+
+transfer() {
+# write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+        curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    rm -f $tmpfile;
 }
