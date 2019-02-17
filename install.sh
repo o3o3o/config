@@ -18,7 +18,7 @@ install_dotfile(){
 }
 
 install_ohmyzsh(){
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh )" || true
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh )"
 }
 
 install_tpm(){
@@ -29,6 +29,8 @@ install_tpm(){
 
 install_apt(){
     sudo apt-get install docker docker-compose tmux zsh
+    sudo chsh -s $(grep /zsh$ /etc/shells | tail -1) $(whoami)
+    sudo usermod -aG docker $(whoami)
 }
 
 usage(){
