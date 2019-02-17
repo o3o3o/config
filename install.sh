@@ -17,7 +17,7 @@ install_dotfile(){
 }
 
 install_ohmyzsh(){
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 install_tpm(){
@@ -46,5 +46,6 @@ case $1 in
     *)
         install_apt
         install_ohmyzsh
+        install_tpm
         install_dotfile
 esac
