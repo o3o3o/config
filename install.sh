@@ -1,6 +1,7 @@
 #!/bin/bash
 set -o nounset
-set -o errexit
+
+OPTIONS=(apt ohmyzsh tpm dotfile)
 
 install_dotfile(){
     local dotfile="
@@ -17,7 +18,7 @@ install_dotfile(){
 }
 
 install_ohmyzsh(){
-    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh )" || true
 }
 
 install_tpm(){
@@ -30,22 +31,30 @@ install_apt(){
     sudo apt-get install docker docker-compose tmux zsh
 }
 
-case $1 in 
-    apt)
-        install_apt
-        ;;
-    zshconf)
-        install_ohmyzsh
-        ;;
-    tpm)
-        install_tpm
-        ;;
-    dots)
-        install_dotfile
-        ;;
-    *)
-        install_apt
-        install_ohmyzsh
-        install_tpm
-        install_dotfile
-esac
+usage(){
+cat <<EOF
+Usage: $0 OPTIONS
+          OPTIONS: all ${OPTIONS[@]}
+EOF
+}
+
+main(){
+    if [ $# -ne 1 ]; then
+        echo $#
+        usage
+        exit 1
+    fi
+
+    if [[ " ${OPTIONS[@]} " =~ " $1 " ]]; then
+        echo "install $1 ..."
+        install_$1
+    else
+        for o in ${OPTIONS[@]}
+        do
+            echo "install $o"
+            install_$o
+        done
+    fi
+}
+
+main $@
