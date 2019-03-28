@@ -15,6 +15,9 @@ install_dotfile(){
         \cp -fr $i ~/
     done
 
+    mkdir -p ~/.pip
+    cp .pip/pip.conf ~/.pip
+
 }
 
 install_ohmyzsh(){
