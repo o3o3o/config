@@ -10,6 +10,7 @@ function tag ()
     ctags -R . --tag-relative=yes ./
 cscope -qRb
 }
+
 alias cherrytree='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;cherrytree'
 
 function tags_django()
@@ -33,6 +34,14 @@ function pyclean()
 {
     find . -name '*.pyc' | xargs rm
     echo "Clean .pyc Finished"
+}
+
+function pyenvinstall()
+{
+    local v=$1
+    # local v=3.6.5
+    wget -c http://mirrors.sohu.com/python/${v}/Python-${v}.tar.xz -P ~/.pyenv/cache/
+    pyenv install ${v}
 }
 
 transfer() {
