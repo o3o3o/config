@@ -1,3 +1,4 @@
+alias f='fortune'
 
 function tag ()
 {
@@ -8,7 +9,7 @@ function tag ()
     # generate new info
     find $PWD | egrep -i "\.(c|h|cpp|php)$" > cscope.files
     ctags -R . --tag-relative=yes ./
-cscope -qRb
+    cscope -qRb
 }
 
 alias cherrytree='export LANG=en_US.UTF-8;export LC_ALL=en_US.UTF-8;cherrytree'
@@ -50,6 +51,23 @@ transfer() {
         curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
     cat $tmpfile;
     rm -f $tmpfile;
+}
+
+batch_add_sourcerer() {
+    for i in $@
+    do
+        sourcerer add $i
+    done
+}
+
+unset_proxy() {
+    unset {http,https,ftp}_proxy
+    unset {HTTP,HTTPS,FTP}_PROXY
+}
+
+set_proxy() {
+    export {http,https,ftp}_proxy="$1"
+    export {HTTP,HTTPS,FTP}_PROXY="$1"
 }
 
 alias dlog='docker logs -t 50  -f'
