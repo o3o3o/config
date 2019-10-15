@@ -31,8 +31,8 @@ install_tpm(){
 }
 
 install_apt(){
-    sudo apt-get install -y docker docker-compose tmux zsh
-    sudo chsh -s $(grep /zsh$ /etc/shells | tail -1) $(whoami)
+    sudo apt-get update && apt-get install -y docker docker-compose tmux zsh
+    sudo usermod --shell $(grep /zsh$ /etc/shells | tail -1) $(whoami)
     sudo usermod -aG docker $(whoami)
     git config --global core.editor "vim"
     git config merge.tool vimdiff
