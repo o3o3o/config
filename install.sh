@@ -31,9 +31,13 @@ install_tpm(){
 }
 
 install_apt(){
-    sudo apt-get update && sudo apt-get install -y docker tmux zsh
+    sudo apt-get update && sudo apt-get install -y docker.io tmux zsh
     sudo usermod --shell $(grep /zsh$ /etc/shells | tail -1) $(whoami)
+    # docker conf
     sudo usermod -aG docker $(whoami)
+    sudo systemctl start docker
+    sudo systemctl enable docker
+
     sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     git config --global core.editor "vim"
     git config merge.tool vimdiff
