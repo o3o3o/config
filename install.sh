@@ -21,7 +21,8 @@ install_dotfile(){
 }
 
 install_ohmyzsh(){
-    sh util/install_ohmyzsh.sh
+     export RUNZSH=no
+     sh -c "$(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 install_tpm(){
