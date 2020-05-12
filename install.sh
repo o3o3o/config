@@ -27,8 +27,7 @@ install_ohmyzsh(){
 
 install_tpm(){
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    tmux source-file ~/.tmux.conf
-    echo "Enter tmux and hit prefix + I to fetch all the plugin"
+    tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux source-file ~/.tmux.conf && tmux kill-session -t delete-me
 }
 
 install_apt(){
