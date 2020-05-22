@@ -105,6 +105,7 @@ alias ,fix_readlib='cd /usr/local/opt/readline/lib && ln -s libreadline.8.0.dyli
 }
 
 alias ,copy='pbcopy'
+alias ,paste='pbpaste'
 
 ,proxybrew() {
     set -ux 
